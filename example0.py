@@ -11,6 +11,6 @@ strategy_name = 'Collude'
 strategy_description = 'Always collude.'
     
 def move(my_history, their_history, my_score, their_score):
-    while their_history[-1] == "c":
+    while their_history="b":
         return 'c'
     return "b"
