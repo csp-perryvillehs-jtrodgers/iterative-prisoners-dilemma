@@ -10,23 +10,24 @@ team_name = 'The name the team gives to itself' # Only 10 chars displayed.
 strategy_name = 'The name the team gives to this strategy'
 strategy_description = 'How does this strategy decide?'
     
+import random
+            
 def move(my_history, their_history, my_score, their_score):
-    ''' Arguments accepted: my_history, their_history are strings.
-    my_score, their_score are ints.
-    
-    Make my move.
-    Returns 'c' or 'b'. 
-    '''
-
-    # my_history: a string with one letter (c or b) per round that has been played with this opponent.
-    # their_history: a string of the same length as history, possibly empty. 
-    # The first round between these two players is my_history[0] and their_history[0].
-    # The most recent round is my_history[-1] and their_history[-1].
-    
-    # Analyze my_history and their_history and/or my_score and their_score.
-    # Decide whether to return 'c' or 'b'.
-    
-    return 'c'
+    Counter = 0
+    randomizer = random.randint(1,2)
+    if my_history == 0:
+        return 'c'
+    elif their_history == 'b':
+        Counter = Counter - 1
+    elif their_history == 'c':
+        Counter = Counter + 1
+    elif Counter >= 0:
+        if randomizer == 1:
+            return 'c'
+        else: 
+            return 'b'
+    elif Counter <= 0:
+        return 'b'
 
     
 def test_move(my_history, their_history, my_score, their_score, result):
@@ -53,7 +54,7 @@ if __name__ == '__main__':
               my_score=0,
               their_score=0,
               result='b'):
-         print 'Test passed'
+         print ('Test passed')
      # Test 2: Continue betraying if they collude despite being betrayed.
     test_move(my_history='bbb',
               their_history='ccc', 
