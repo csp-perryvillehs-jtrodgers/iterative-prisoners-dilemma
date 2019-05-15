@@ -53,7 +53,7 @@ if __name__ == '__main__':
               my_score=0,
               their_score=0,
               result='b'):
-         print 'Test passed'
+         print ('Test passed')
      # Test 2: Continue betraying if they collude despite being betrayed.
     test_move(my_history='bbb',
               their_history='ccc', 
@@ -66,3 +66,11 @@ if __name__ == '__main__':
               my_score=0, 
               their_score=0,
               result='b')             
+
+def move(my_history, their_history, my_score, their_score):
+    if my_history == 'c':
+        return "c"
+    elif their_history == "b":
+        return "b"
+    elif my_score == -100:
+        return "b"
